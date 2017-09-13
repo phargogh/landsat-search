@@ -22,6 +22,7 @@ def main():
     print 'Done.'
 
     intersecting_bbox = (68.40073, 75.74251, 24.4185, 35.93353)
+    total_download_size = 0.
     for matching_raster in scene_index.intersection(intersecting_bbox, objects=True):
         data = json.loads(matching_raster.object)
         for band_num in (1, 2, 6):
@@ -30,7 +31,9 @@ def main():
                 band=band_num)
             raster_url = data['download_url'].replace('index.html', filename)
             filesize = int(requests.head(raster_url).headers['Content-Length']) / 1024**2.
+            total_download_size += filesize
             print "%55s (%s MB)" % (filename, round(filesize, 2))
+    print "Total download size: %s MB." % round(total_download_size, 2)
 
 
 if __name__ == '__main__':
