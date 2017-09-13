@@ -46,7 +46,6 @@ def combined():
                 print "%55s (%s MB)" % (filename, round(filesize, 2))
 
     print "Total download size: %s MB." % round(total_download_size, 2)
-    print 'filter2 done. (%ss)' % round(time.time() - start_time, 2)
 
     return found_ids
 
