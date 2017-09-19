@@ -11,7 +11,7 @@ import requests
 # Speedup factor: 104x
 
 
-SCENE_LIST = 'scene_list'
+SCENE_LIST = 'scene_list_aws.csv'
 
 
 # bbox: 4-element tuple
